@@ -1,0 +1,29 @@
+# Relay workflow (RELAY.md §2, D53).
+#
+# The relay is passive: it only runs when the APP dispatches this workflow.
+# The complete task manifest travels in one string input; adding a manifest
+# field never requires editing this file.
+#
+# `timeout-minutes: 350` is job-level on purpose: RELAY.md §2 sketches it at the
+# top of the file, but GitHub Actions only accepts it under a job (a top-level
+# key makes the workflow invalid). 350 min leaves margin under the 6 h limit.
+name: yic
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'task manifest (json)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  relay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v5
+      - run: node relay/main.mjs
+        env:
+          YIC_TASK: ${{ inputs.task }}
+          YIC_KEY: ${{ secrets.YIC_KEY }}
