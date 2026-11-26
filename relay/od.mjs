@@ -1,5 +1,5 @@
 /**
- * OneDrive / Microsoft Graph AppFolder access (RELAY.md §1, D12, D13).
+ * OneDrive / Microsoft Graph AppFolder access (OPERATIONS.md §1, D12, D13).
  *
  * The relay never uses rclone or any npm Graph SDK: two operations are enough —
  * an upload session with fixed chunks, and a ranged download that can resume.
@@ -12,7 +12,7 @@
  *
  * The upload-session PUT URL is pre-authenticated and must not carry the
  * Authorization header; every other request does. Failures are reported as
- * `od_error` (RELAY.md §7) and never include the token or a full URL.
+ * `od_error` (OPERATIONS.md §7) and never include the token or a full URL.
  */
 
 import fs from 'node:fs'

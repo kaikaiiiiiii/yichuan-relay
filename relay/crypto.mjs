@@ -1,5 +1,5 @@
 /**
- * YIC_KEY unsealing (RELAY.md §5, protocol.ts §"sealed envelope").
+ * YIC_KEY unsealing (OPERATIONS.md §5, protocol.ts §"sealed envelope").
  *
  * Envelope: base64(nonce[12] || ciphertext || tag[16]) with
  * ChaCha20-Poly1305 (Node's built-in cipher, i.e. RFC 8439 AEAD).

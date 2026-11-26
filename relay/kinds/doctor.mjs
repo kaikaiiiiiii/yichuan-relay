@@ -1,5 +1,5 @@
 /**
- * `doctor` — the relay self-check kind (BUILD.md §2, RELAY.md §7).
+ * `doctor` — the relay self-check kind (BUILD.md §2, OPERATIONS.md §7).
  *
  * No target repository is touched. The result package carries
  * `payload/doctor.json`: relay/schema versions, runtime versions, and one check

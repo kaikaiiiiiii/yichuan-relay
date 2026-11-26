@@ -1,5 +1,5 @@
 /**
- * `fetch` — downlink (RELAY.md §4.2).
+ * `fetch` — downlink (OPERATIONS.md §4.2).
  *
  * No task package: everything arrives in the manifest. The relay clones the
  * target bare (runner bandwidth is the cheap side), cuts an incremental or full

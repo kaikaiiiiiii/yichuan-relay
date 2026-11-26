@@ -1,5 +1,5 @@
 /**
- * `export` — downlink (RELAY.md §4.4).
+ * `export` — downlink (OPERATIONS.md §4.4).
  *
  * Clone bare, then `git archive --format=tar <ref>` into the result package as
  * `payload/files.tar`. The APP unpacks that tar; no `.git` ever travels.

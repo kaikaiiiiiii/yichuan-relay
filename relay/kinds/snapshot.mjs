@@ -1,5 +1,5 @@
 /**
- * `snapshot` — uplink (RELAY.md §4.3).
+ * `snapshot` — uplink (OPERATIONS.md §4.3).
  *
  * The task package carries `payload/files/` (a plain file tree). Depending on
  * the target the relay either initialises a new history (empty repo / new

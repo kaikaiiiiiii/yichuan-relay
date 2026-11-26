@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Relay entry point (RELAY.md §2/§3, IMPLEMENTATION.md P4).
+ * Relay entry point (OPERATIONS.md §2/§3, IMPLEMENTATION.md P4).
  *
  * One `workflow_dispatch` input carries the complete task manifest as JSON;
  * `YIC_KEY` is the relay repo's single long-lived secret. This file:
@@ -45,7 +45,7 @@ const KIND_MODULES = Object.freeze({
 })
 
 export const UPLINK_KINDS = Object.freeze(new Set(['push', 'snapshot']))
-export const DOWNLINK_KINDS = Object.freeze(new Set(['fetch', 'export', 'doctor']))
+export const DOWNLINK_KINDS = Object.freeze(new Set(['fetch', 'export', 'doctor', 'download']))
 export const KNOWN_KINDS = Object.freeze(new Set([...UPLINK_KINDS, ...DOWNLINK_KINDS]))
 
 const TXN_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/
@@ -90,7 +90,7 @@ function assertTarget(manifest) {
 /**
  * Structural validation of one YIC_TASK manifest. Returns a RelayError or null.
  * Schema and kind are checked first so an out-of-date relay refuses cleanly
- * instead of half-running a task it does not understand (RELAY.md §9).
+ * instead of half-running a task it does not understand (OPERATIONS.md §9).
  */
 export function preflight(manifest) {
   if (!isPlainObject(manifest)) return new RelayError('internal', 'task manifest must be a JSON object')

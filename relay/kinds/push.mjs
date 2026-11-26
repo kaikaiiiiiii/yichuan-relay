@@ -1,5 +1,5 @@
 /**
- * `push` — uplink (RELAY.md §4.1, IMPLEMENTATION.md P7).
+ * `push` — uplink (OPERATIONS.md §4.1, IMPLEMENTATION.md P7).
  *
  * Task package: `in/<txn>.tar` containing `manifest.json` + `payload/bundle.bundle`.
  * The bundle is an incremental range (`^base <ref>`) produced by the APP, so the

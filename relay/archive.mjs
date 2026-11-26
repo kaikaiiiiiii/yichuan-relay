@@ -6,7 +6,7 @@
  *   tar -cf <archive> -C <dir> .
  *   tar -xf <archive> -C <dir>
  *
- * Zero dependencies: no npm tar library, no zip (RELAY.md §1 allows tar once the
+ * Zero dependencies: no npm tar library, no zip (OPERATIONS.md §1 allows tar once the
  * two sides agree; protocol.ts fixes the member layout).
  */
 

@@ -1,5 +1,5 @@
 /**
- * Restricted logging (RELAY.md §8, DESIGN.md §7.3).
+ * Restricted logging (OPERATIONS.md §8, DESIGN.md §7.3).
  *
  * Actions logs are public when the relay repo is public, so stdout may only
  * carry: task id, kind, byte counts, elapsed time and the error class.
@@ -10,12 +10,12 @@
  * which only the APP downloads.
  *
  * This module also owns the relay's own error type and the classifier that maps
- * an arbitrary failure (usually a git stderr) onto RELAY.md §7's nine classes.
+ * an arbitrary failure (usually a git stderr) onto OPERATIONS.md §7's nine classes.
  */
 
 import { RELAY_VERSION } from './version.mjs'
 
-/** The nine RELAY.md §7 classes a relay may report (app/src/core/types.ts). */
+/** The nine OPERATIONS.md §7 classes a relay may report (app/src/core/types.ts). */
 export const RELAY_ERROR_CLASSES = Object.freeze([
   'auth',
   'target_not_found',
@@ -89,7 +89,7 @@ export function errorText(error) {
 }
 
 /**
- * Map any thrown value onto one of the nine relay classes (RELAY.md §7).
+ * Map any thrown value onto one of the nine relay classes (OPERATIONS.md §7).
  * `RelayError.errorClass` wins; otherwise git/Graph stderr is pattern matched.
  */
 export function classifyError(error) {

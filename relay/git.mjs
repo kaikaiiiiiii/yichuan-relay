@@ -1,5 +1,5 @@
 /**
- * Thin, hardened wrapper around the system `git` (RELAY.md §1/§4, D5).
+ * Thin, hardened wrapper around the system `git` (OPERATIONS.md §1/§4, D5).
  *
  * Rules enforced here for every invocation:
  *  - no interactive prompts (`GIT_TERMINAL_PROMPT=0`, no credential helpers),
@@ -177,7 +177,7 @@ export async function fetchRef(cwd, remote, refspec, options = {}) {
   await exec(args, { cwd, configArgs: options.configArgs })
 }
 
-/** RELAY.md §4.1 step 4: shallow-fetch the base commit (`--depth=<depth>`). */
+/** OPERATIONS.md §4.1 step 4: shallow-fetch the base commit (`--depth=<depth>`). */
 export async function fetchDepth(cwd, remote, refspec, depth, options = {}) {
   return fetchRef(cwd, remote, refspec, { ...options, depth })
 }
@@ -227,7 +227,7 @@ export async function pushRef(cwd, remote, src, dest, options = {}) {
 }
 
 /**
- * RELAY.md §4.1 step 6: push with `--force-with-lease=<ref>:<base>`.
+ * OPERATIONS.md §4.1 step 6: push with `--force-with-lease=<ref>:<base>`.
  * `leaseBase` is the APP-known remote sha; when it is empty this degrades to a
  * plain (or forced) push, because there is no expectation to protect.
  */
@@ -273,7 +273,7 @@ export async function checkoutOrphan(cwd, branch) {
 }
 
 /**
- * Deterministic commit for snapshot publishing (RELAY.md §4.3):
+ * Deterministic commit for snapshot publishing (OPERATIONS.md §4.3):
  * author/committer and both dates come from the manifest, never from now().
  */
 export async function commitDeterministic(cwd, message, options = {}) {
