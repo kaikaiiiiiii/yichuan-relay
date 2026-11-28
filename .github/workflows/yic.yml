@@ -8,9 +8,15 @@
 # top of the file, but GitHub Actions only accepts it under a job (a top-level
 # key makes the workflow invalid). 350 min leaves margin under the 6 h limit.
 name: yic
+# A small correlation key, not the manifest: run titles are public.
+run-name: yic ${{ inputs.txn }}
 on:
   workflow_dispatch:
     inputs:
+      txn:
+        description: 'task transaction id (correlation only)'
+        required: false
+        type: string
       task:
         description: 'task manifest (json)'
         required: true
